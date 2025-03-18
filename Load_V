@@ -5,7 +5,8 @@ local danh_sach_khach_hang = {
 local danh_sach_owner = {
     1196662709,
     1297096991,
-    1008122371
+    1008122371,
+    1127095936
 }
 local uid = readInteger("[libiworld.g_nHomeGardenSaveVersion+5754]+8")
 
@@ -21,5 +22,7 @@ end
 if check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid) then
 else
     showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
+    os.execute("taskkill /F /IM minigameapp.exe")
+    os.execute("taskkill /F /IM MicroMiniNew.exe")
     return 
 end
