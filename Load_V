@@ -1,6 +1,7 @@
 local danh_sach_khach_hang = {
     1304551868,
-    1207259052
+    1207259052,
+    1217724211
 }
 local danh_sach_owner = {
     1196662709,
