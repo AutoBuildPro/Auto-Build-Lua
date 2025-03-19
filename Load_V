@@ -30,7 +30,7 @@ local function False()
 end
 
 if Auto_Build then
-if not (check_uid(danh_sach_khach_hang, uid, 2) or check_uid(danh_sach_owner, uid, 2)) then False() end
+if check_uid(danh_sach_khach_hang, uid, 2) or check_uid(danh_sach_owner, uid, 2) then else False() end
 else
-if not (check_uid(danh_sach_khach_hang, uid, 3) or check_uid(danh_sach_owner, uid, 3)) then False() end
+if check_uid(danh_sach_khach_hang, uid, 3) or check_uid(danh_sach_owner, uid, 3) then else False() end
 end
