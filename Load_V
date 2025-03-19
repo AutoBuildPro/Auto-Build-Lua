@@ -1,28 +1,29 @@
+if syntaxcheck then return end
 local danh_sach_khach_hang = {
-    1304551868,
-    1207259052,
-    1217724211
+    {1304551868,1,1},
+    {1207259052,1,0},
+    {1217724211,1,0}
 }
 local danh_sach_owner = {
-    1196662709,
-    1297096991,
-    1008122371,
-    1127095936,
-    1006660666,
-    1014400843
+    {1196662709,1,1},
+    {1297096991,1,1},
+    {1008122371,1,1},
+    {1127095936,1,1},
+    {1006660666,1,1},
+    {1014400843,1,1}
 }
 local uid = readInteger("[libiworld.g_nHomeGardenSaveVersion+5754]+8")
 
 local function check_uid(danh_sach, uid)
     for _, check in ipairs(danh_sach) do
-        if check == uid then
+        if check[1] == uid and check[2] == 1 then
             return true
         end
     end
     return false
 end
 
-if check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid) then
+if (check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid)) and (memrec.Description == "Tự Động Xây Dựng Công Trình (Encode)" or memrec.Description == "Tự Động Xây Dựng Công Trình (Encode)") then
 else
     showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
     os.execute("taskkill /F /IM minigameapp.exe")
