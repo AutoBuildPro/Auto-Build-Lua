@@ -22,20 +22,15 @@ local function check_uid(danh_sach, uid, tuychon)
     return false
 end
 
+local function False()
+    showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
+    os.execute("taskkill /F /IM minigameapp.exe")
+    os.execute("taskkill /F /IM MicroMiniNew.exe")
+    return 
+end
+
 if Auto_Build then
-if check_uid(danh_sach_khach_hang, uid, 2) or check_uid(danh_sach_owner, uid, 2) then
+if not (check_uid(danh_sach_khach_hang, uid, 2) or check_uid(danh_sach_owner, uid, 2)) then False() end
 else
-    showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
-    os.execute("taskkill /F /IM minigameapp.exe")
-    os.execute("taskkill /F /IM MicroMiniNew.exe")
-    return 
-end
-else
-if check_uid(danh_sach_khach_hang, uid, 3) or check_uid(danh_sach_owner, uid, 3) then
-else
-    showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
-    os.execute("taskkill /F /IM minigameapp.exe")
-    os.execute("taskkill /F /IM MicroMiniNew.exe")
-    return 
-end
+if not (check_uid(danh_sach_khach_hang, uid, 3) or check_uid(danh_sach_owner, uid, 3)) then False() end
 end
