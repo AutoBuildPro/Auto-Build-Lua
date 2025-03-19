@@ -13,19 +13,29 @@ local danh_sach_owner = {
 }
 local uid = readInteger("[libiworld.g_nHomeGardenSaveVersion+5754]+8")
 
-local function check_uid(danh_sach, uid)
+local function check_uid(danh_sach, uid, tuychon)
     for _, check in ipairs(danh_sach) do
-        if check[1] == uid and check[2] == 1 then
+        if check[1] == uid and check[tuychon] == 1 then
             return true
         end
     end
     return false
 end
 
-if (check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid)) and memrec.Description == "Tự Động Xây Dựng Công Trình (Encode)" then
+if not Auto_Build then
+if check_uid(danh_sach_khach_hang, uid, 2) or check_uid(danh_sach_owner, uid, 2) then
 else
     showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
     os.execute("taskkill /F /IM minigameapp.exe")
     os.execute("taskkill /F /IM MicroMiniNew.exe")
     return 
+end
+else
+if check_uid(danh_sach_khach_hang, uid, 3) or check_uid(danh_sach_owner, uid, 3) then
+else
+    showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
+    os.execute("taskkill /F /IM minigameapp.exe")
+    os.execute("taskkill /F /IM MicroMiniNew.exe")
+    return 
+end
 end
