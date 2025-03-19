@@ -22,7 +22,7 @@ local function check_uid(danh_sach, uid, tuychon)
     return false
 end
 
-if not Auto_Build then
+if Auto_Build then
 if check_uid(danh_sach_khach_hang, uid, 2) or check_uid(danh_sach_owner, uid, 2) then
 else
     showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
