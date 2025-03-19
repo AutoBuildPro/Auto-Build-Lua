@@ -23,7 +23,7 @@ local function check_uid(danh_sach, uid)
     return false
 end
 
-if (check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid)) and (memrec.Description == "Tự Động Xây Dựng Công Trình (Encode)" or memrec.Description == "Tự Động Xây Dựng Công Trình (Encode)") then
+if check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid) then
 else
     showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
     os.execute("taskkill /F /IM minigameapp.exe")
