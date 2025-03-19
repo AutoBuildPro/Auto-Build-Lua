@@ -1,4 +1,3 @@
-if syntaxcheck then return end
 local danh_sach_khach_hang = {
     {1304551868,1,1},
     {1207259052,1,0},
@@ -23,7 +22,7 @@ local function check_uid(danh_sach, uid)
     return false
 end
 
-if check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid) then
+if (check_uid(danh_sach_khach_hang, uid) or check_uid(danh_sach_owner, uid)) and memrec.Description == "Tự Động Xây Dựng Công Trình (Encode)" then
 else
     showMessage('Hệ Thống Phát Hiện UID Không Hợp Lệ!')
     os.execute("taskkill /F /IM minigameapp.exe")
