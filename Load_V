@@ -9,7 +9,8 @@ local danh_sach_owner = {
     {1008122371,1,1},
     {1127095936,1,1},
     {1006660666,1,1},
-    {1014400843,1,1}
+    {1014400843,1,1},
+    {1036525424,1,1}
 }
 local uid = readInteger("[libiworld.g_nHomeGardenSaveVersion+5754]+8")
 
